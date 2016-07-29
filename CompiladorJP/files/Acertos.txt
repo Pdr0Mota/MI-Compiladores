@@ -1,0 +1,79 @@
+{ palavras reservadas }
+
+programa const var funcao inicio fim se entao senao enquanto faca leia escreva inteiro real booleano verdadeiro falso cadeia caractere
+{ Testando cadeia de comentario ' " ( ; ) 
+saltar linha
+	linha com tabulacao
+<> + - * / -
+
+}
+
+{ operadores relacionais }
+
+<>
+=
+<=
+<
+>
+>=
+
+{ operadores logicos }
+
++
+-
+* 
+/
+
+{ identificadores }
+
+a
+
+a1
+
+a_
+
+a1_
+
+aa
+
+aa1
+
+aa_
+
+aa1_
+
+{ numeros }
+
+1
+
+12
+
+1.0
+
+0.1
+
+-1
+
+-12
+
+-1.0
+
+-0.1
+
+{ caracteres e cadeia }
+
+'a'
+
+'1'
+
+"a1"
+
+{ delimitadores }
+
+a;b;
+
+10;20;
+
+a(b)
+
+10(20)

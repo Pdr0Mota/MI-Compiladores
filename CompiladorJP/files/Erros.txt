@@ -1,0 +1,22 @@
+{ identificador mal formado }
+
+a11.1
+
+{ numero mal formado }
+
+10a
+
+1.a1
+
+-10a
+
+-1.a1
+
+{ caractere e cadeia de caracteres mal formados }
+
+'$'
+
+"ae$"
+
+'a3'
+
