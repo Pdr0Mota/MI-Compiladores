@@ -76,7 +76,7 @@ public class Leitor {
 		// Seperando operadores aritmeticos 
 		novaString = novaString.replaceAll("\\+", " + ");
 
-		novaString = novaString.replaceAll("\\-", " - ");
+		novaString = novaString.replaceAll("\\-", " -");
 
 		novaString = novaString.replaceAll("\\*", " * ");
 
@@ -89,11 +89,6 @@ public class Leitor {
 		novaString = novaString.replaceAll("\\(", " ( ");
 		novaString = novaString.replaceAll("\\)", " ) ");
 
-
-		// Separando os numeros
-
-		novaString = novaString.replaceAll("([\\d]+)\\.([\\d]+)", " $1.$2 ");
-
 		// Separando os caracters constantes
 
 		novaString = novaString.replaceAll("' ([a-zA-Z_0-9]) '", " '$1' ");
@@ -102,6 +97,8 @@ public class Leitor {
 
 		// Separando as cadeias constantes
 
+		novaString = novaString.replaceAll("(\"[a-zA-Z][[a-zA-Z_0-9]| ]*\")", " $1 ");
+		
 		// Separador de simbolos
 
 		novaString = novaString.replaceAll("\\#", " # ");
@@ -117,6 +114,8 @@ public class Leitor {
 		novaString = novaString.replaceAll("\\|", " | ");
 		novaString = novaString.replaceAll("\\{", " {");
 		novaString = novaString.replaceAll("\\}", "} ");
+		
+		System.out.println(novaString);
 
 		return novaString;
 

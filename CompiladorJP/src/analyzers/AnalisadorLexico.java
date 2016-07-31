@@ -110,7 +110,7 @@ public class AnalisadorLexico {
 
 						System.out.println("Add como Identificador: " + lexema);
 
-					} else if (lexema.matches("[\\d]+|[\\d]+\\.[\\d]+")) {
+					} else if (lexema.matches("-?[\\d]+|-?[\\d]+\\.[\\d]+")) {
 
 						Token temp = new Token("Numero", lexema, contadorLinha);
 						tokens.add(temp);
@@ -150,8 +150,15 @@ public class AnalisadorLexico {
 				case COMENTARIO:
 
 					lexema = lexema + caracteres[i];
+					
+					//usados na regex dos comentarios
+					String simbolos = "\\#|\\$|\\%|\\?|\\@|\\^|\\~|\\|\\*|:|<|>|_|!|.";
+					String simbolosOperadores = "\\+|\\-|\\=|\\&|\\||/";
+					String simbolosDelimitadores = "\\;|\\,|\\(|\\)|\\{|\\}|\\[|\\]";
 
-					if (lexema.matches("\\{.*\\}")) {
+					if (lexema.matches("\\{[[a-zA-Z_0-9]| |\n|\t|\'|\"|"
+							+ simbolos + "|" + simbolosDelimitadores + "|"
+							+ simbolosOperadores + "]*\\}")) {
 
 						Token temp = new Token("Comentario", lexema, contadorLinha);
 						tokens.add(temp);
@@ -218,7 +225,7 @@ public class AnalisadorLexico {
 
 				delimitadorTokens1 = '}';
 				delimitadorTokens2 = '}';
-				delimitadorTokens3 = '\n';
+				delimitadorTokens3 = '}';
 				delimitadorTokens4 = '$'; // escolher caracter de fim de codigo
 				modo = COMENTARIO;
 
@@ -238,18 +245,19 @@ public class AnalisadorLexico {
 
 	private void identificarErroElementosAvulsos(String lexema, int linha) {
 		
-		if (lexema.matches("[\\d]+[\\.]+")||lexema.matches("[\\.]+[0-9]+[a-zA-Z]*")||lexema.matches("[\\.]+[0-9]+[a-zA-Z]+")) {
+		if (lexema.matches("-?[\\d]+[\\.]+")||lexema.matches("-?[\\.]+[0-9]+[a-zA-Z]*")||lexema.matches("-?[\\.]+[0-9]+[a-zA-Z]+")||lexema.matches("-?[0-9]+[[a-zA-Z_0-9]|_]*")) {
 
 			erros.add(new Erro("Numero mal formado", lexema, linha));
 
-		} else if (lexema.matches("[[0-9]|_]+[[a-zA-Z_0-9]|_]*")) {
+		} else if (lexema.matches("[_]+[[a-zA-Z_0-9]|_]*")) {
 
 			erros.add(new Erro("Identificador mal formado", lexema, linha));
 
 		}  else {
-
+		
+			//Lexemas formados por simbolos estranhos como $$$ %#%%, nao se sabe se é número, id ou etc.
+			erros.add(new Erro("Lexema mal formado", lexema, linha));
 			
-
 		}
 	}
 

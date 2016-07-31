@@ -5,15 +5,13 @@ import java.io.File;
 public class Teste {
 
 	public static void main(String[] args) {
-
-		/*Julio diz: Oi, pedro! */
 		
 		
-		String codigo = "programa funcao(((67.4 casa +++\"casa\"{casa de maria e azul )([]868765786} $";
+		String codigo = "programa funcao(((--67.4 casa +++\"casa\"{casa de maria e azul )([]868765786} $";
 		Leitor leitor = new Leitor("Aqui seria o caminho do arquivo");
 		
 		System.out.println("Arquivos: ");
-		leitor.readAllFiles();
+		//leitor.readAllFiles();
 		
 		//pula o metodo que le o arquivo
 		leitor.setCodigo(codigo);
