@@ -120,7 +120,7 @@ public class AnalisadorLexico {
 
 						System.out.println("Add como Numero: " + lexema);
 
-					} else {
+					} else if (!lexema.equals("") && !lexema.equals(" ") && !lexema.equals("\n")){
 
 						identificarErroElementosAvulsos(lexema, contadorLinha);
 
@@ -151,15 +151,20 @@ public class AnalisadorLexico {
 					break;
 
 				case COMENTARIO:
+					
+				
 
 					lexema = lexema + caracteres[i];
 					
+					lexema = lexema.replaceAll("\n", "");
+					lexema = lexema.replaceAll("\t", "");
+					
 					//usados na regex dos comentarios
-					String simbolos = "\\#|\\$|\\%|\\?|\\@|\\^|\\~|\\|\\*|:|<|>|_|!|.";
-					String simbolosOperadores = "\\+|\\-|\\=|\\&|\\||/";
+					String simbolos = "\\#|\\$|\\%|\\?|\\@|\\^|\\~|\\|\\*|:|\\<|\\>|_|!|\\.";
+					String simbolosOperadores = "\\+|\\-|\\=|\\&|\\||/|\\\\";
 					String simbolosDelimitadores = "\\;|\\,|\\(|\\)|\\{|\\}|\\[|\\]";
 
-					if (lexema.matches("\\{[[a-zA-Z_0-9]| |\n|\t|\'|\"|"
+					if (lexema.matches("\\{[[a-zA-Z_0-9]| |\n|\t|\\'|\"|"
 							+ simbolos + "|" + simbolosDelimitadores + "|"
 							+ simbolosOperadores + "]*\\}")) {
 
@@ -208,7 +213,7 @@ public class AnalisadorLexico {
 
 			// Verifica qual deve ser o proximo modo
 
-			if (i + 1 < caracteres.length && caracteres[i + 1] == '\'') {
+			if (i + 1 < caracteres.length && caracteres[i + 1] == '\'' && modo!=COMENTARIO) {
 
 				delimitadorTokens1 = '\'';
 				delimitadorTokens2 = ' ';
@@ -216,7 +221,7 @@ public class AnalisadorLexico {
 				delimitadorTokens4 = '$'; // escolher caracter de fim de codigo
 				modo = CARACTERCONSTANTE;
 
-			} else if (i + 1 < caracteres.length && caracteres[i + 1] == '"') {
+			} else if (i + 1 < caracteres.length && caracteres[i + 1] == '"' && modo!=COMENTARIO) {
 
 				delimitadorTokens1 = '"';
 				delimitadorTokens2 = '\n';
@@ -224,7 +229,7 @@ public class AnalisadorLexico {
 				delimitadorTokens4 = '$'; // escolher caracter de fim de codigo
 				modo = CADEIACONSTANTE;
 
-			} else if (i + 1 < caracteres.length && caracteres[i + 1] == '{') {
+			} else if (i + 1 < caracteres.length && caracteres[i + 1] == '{' && modo!=COMENTARIO) {
 
 				delimitadorTokens1 = '}';
 				delimitadorTokens2 = '}';
@@ -236,13 +241,24 @@ public class AnalisadorLexico {
 
 		} // Fim do percorrimento do array
 
-//		gravarResultadoEmArquivo();
+
+		
+		
 
 	}
+	
+	public void printLexemas(){
+		  for (int i = 0; i < tokens.size() ; i++){
+		   System.out.println("LEXEMA Token: " + tokens.get(i).getLexema() + " - TIPO: " + tokens.get(i).getTipo());
+		  }
+		  for (int i = 0; i < tokens.size() ; i++){
+		   System.out.println("LEXEMA Erro: " + erros.get(i).getLexema()  + " - TIPO: " + erros.get(i).getTipo());
+		  }
+		 }
 
 	public void gravarResultadoEmArquivo(String fileName) {
 //		primeira ação, gravar os acertos
-		Path p = Paths.get("D:/Dev/Compiladores/MI-Compiladores/CompiladorJP/results/Resultado de " + fileName);
+		Path p = Paths.get("results/Resultado de " + fileName);
 		String acertos = "";
 		String erros = "";
 		for (int i = 0; i < tokens.size(); i++){
@@ -278,7 +294,7 @@ public class AnalisadorLexico {
 
 			erros.add(new Erro("Identificador mal formado", lexema, linha));
 
-		}  else {
+		}  else if (!lexema.equals(" ") && !lexema.equals("") && !lexema.equals("\n") && !lexema.equals("\t")){
 		
 			//Lexemas formados por simbolos estranhos como $$$ %#%%, nao se sabe se é número, id ou etc.
 			erros.add(new Erro("Lexema mal formado", lexema, linha));

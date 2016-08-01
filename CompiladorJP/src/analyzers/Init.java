@@ -83,6 +83,10 @@ public class Init {
 				System.out.println("Quantidade de TOKENS e ERROS: ");
 				n.printTokensErros();
 				n.gravarResultadoEmArquivo(arquivos[i].getName());
+				
+				/*System.out.println("********************************************************************");
+			    n.printLexemas();
+			    System.out.println("********************************************************************");*/
 			}
 			return true;
 		}

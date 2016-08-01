@@ -2,9 +2,15 @@
 
 programa const var funcao inicio fim se entao senao enquanto faca leia escreva inteiro real booleano verdadeiro falso cadeia caractere
 { Testando cadeia de comentario ' " ( ; ) 
-saltar linha
-	linha com tabulacao
-<> + - * / -
+saltar 
+linha 
+	linha com tabulacao 
+<> 
++ 
+- 
+* 
+/ 
+-
 
 }
 

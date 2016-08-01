@@ -1,1 +1,1 @@
-LEXEMA: arquivo.- Tipo: Lexema mal formado- Posição: 1 -- LEXEMA: Nois!- Tipo: Lexema mal formado- Posição: 1 -- 
+LEXEMA: arquivo.- Tipo: Lexema mal formado- Posição: coluna:1 -- LEXEMA: Nois!- Tipo: Lexema mal formado- Posição: coluna:1 -- 

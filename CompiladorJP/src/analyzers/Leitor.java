@@ -108,7 +108,7 @@ public class Leitor {
 		novaString = novaString.replaceAll("\\^", " ^ ");
 		novaString = novaString.replaceAll("\\~", " ~ ");
 		novaString = novaString.replaceAll("\\|", " | ");
-		novaString = novaString.replaceAll("(\\$)", " $1 ");
+		//novaString = novaString.replaceAll("(\\$)", " $1 ");
 		novaString = novaString.replaceAll("\n", " \n");
 		novaString = novaString.replaceAll("\t", " \t ");
 		novaString = novaString.replaceAll("\\|", " | ");
