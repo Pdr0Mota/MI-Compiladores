@@ -1,0 +1,75 @@
+LEXEMA: "{ palavras reservadas }" do Tipo: Comentario. É o 1º lexema da linha 1
+LEXEMA: "programa" do Tipo: Palavra Reservada. É o 1º lexema da linha 3
+LEXEMA: "const" do Tipo: Palavra Reservada. É o 2º lexema da linha 3
+LEXEMA: "var" do Tipo: Palavra Reservada. É o 3º lexema da linha 3
+LEXEMA: "funcao" do Tipo: Palavra Reservada. É o 4º lexema da linha 3
+LEXEMA: "inicio" do Tipo: Palavra Reservada. É o 5º lexema da linha 3
+LEXEMA: "fim" do Tipo: Palavra Reservada. É o 6º lexema da linha 3
+LEXEMA: "se" do Tipo: Palavra Reservada. É o 7º lexema da linha 3
+LEXEMA: "entao" do Tipo: Palavra Reservada. É o 8º lexema da linha 3
+LEXEMA: "senao" do Tipo: Palavra Reservada. É o 9º lexema da linha 3
+LEXEMA: "enquanto" do Tipo: Palavra Reservada. É o 10º lexema da linha 3
+LEXEMA: "faca" do Tipo: Palavra Reservada. É o 11º lexema da linha 3
+LEXEMA: "leia" do Tipo: Palavra Reservada. É o 12º lexema da linha 3
+LEXEMA: "escreva" do Tipo: Palavra Reservada. É o 13º lexema da linha 3
+LEXEMA: "inteiro" do Tipo: Palavra Reservada. É o 14º lexema da linha 3
+LEXEMA: "real" do Tipo: Palavra Reservada. É o 15º lexema da linha 3
+LEXEMA: "booleano" do Tipo: Palavra Reservada. É o 16º lexema da linha 3
+LEXEMA: "verdadeiro" do Tipo: Palavra Reservada. É o 17º lexema da linha 3
+LEXEMA: "falso" do Tipo: Palavra Reservada. É o 18º lexema da linha 3
+LEXEMA: "cadeia" do Tipo: Palavra Reservada. É o 19º lexema da linha 3
+LEXEMA: "caractere" do Tipo: Palavra Reservada. É o 20º lexema da linha 3
+LEXEMA: "{ Testando cadeia de comentario ' "  (   ;   )     saltar    linha      linha com tabulacao     <>      +      -     *      /      -      }" do Tipo: Comentario. É o 1º lexema da linha 15
+LEXEMA: "{ operadores relacionais }" do Tipo: Comentario. É o 1º lexema da linha 17
+LEXEMA: "<>" do Tipo: Operador Relacional. É o 1º lexema da linha 19
+LEXEMA: "=" do Tipo: Operador Relacional. É o 1º lexema da linha 20
+LEXEMA: "<=" do Tipo: Operador Relacional. É o 1º lexema da linha 21
+LEXEMA: "<" do Tipo: Operador Relacional. É o 1º lexema da linha 22
+LEXEMA: ">" do Tipo: Operador Relacional. É o 1º lexema da linha 23
+LEXEMA: ">=" do Tipo: Operador Relacional. É o 1º lexema da linha 24
+LEXEMA: "{ operadores logicos }" do Tipo: Comentario. É o 1º lexema da linha 26
+LEXEMA: "+" do Tipo: Operador Aritmetico. É o 1º lexema da linha 28
+LEXEMA: "-" do Tipo: Operador Aritmetico. É o 1º lexema da linha 29
+LEXEMA: "*" do Tipo: Operador Aritmetico. É o 1º lexema da linha 30
+LEXEMA: "/" do Tipo: Operador Aritmetico. É o 1º lexema da linha 31
+LEXEMA: "{ identificadores }" do Tipo: Comentario. É o 1º lexema da linha 33
+LEXEMA: "a" do Tipo: Identificador. É o 1º lexema da linha 35
+LEXEMA: "a1" do Tipo: Identificador. É o 1º lexema da linha 37
+LEXEMA: "a_" do Tipo: Identificador. É o 1º lexema da linha 39
+LEXEMA: "a1_" do Tipo: Identificador. É o 1º lexema da linha 41
+LEXEMA: "aa" do Tipo: Identificador. É o 1º lexema da linha 43
+LEXEMA: "aa1" do Tipo: Identificador. É o 1º lexema da linha 45
+LEXEMA: "aa_" do Tipo: Identificador. É o 1º lexema da linha 47
+LEXEMA: "aa1_" do Tipo: Identificador. É o 1º lexema da linha 49
+LEXEMA: "{ numeros }" do Tipo: Comentario. É o 1º lexema da linha 51
+LEXEMA: "1" do Tipo: Numero. É o 1º lexema da linha 53
+LEXEMA: "12" do Tipo: Numero. É o 1º lexema da linha 55
+LEXEMA: "1.0" do Tipo: Numero. É o 1º lexema da linha 57
+LEXEMA: "0.1" do Tipo: Numero. É o 1º lexema da linha 59
+LEXEMA: "-1" do Tipo: Numero. É o 1º lexema da linha 61
+LEXEMA: "-12" do Tipo: Numero. É o 1º lexema da linha 63
+LEXEMA: "-1.0" do Tipo: Numero. É o 1º lexema da linha 65
+LEXEMA: "-0.1" do Tipo: Numero. É o 1º lexema da linha 67
+LEXEMA: "{ caracteres e cadeia }" do Tipo: Comentario. É o 1º lexema da linha 69
+LEXEMA: "'a'" do Tipo: Caracter constante. É o 1º lexema da linha 71
+LEXEMA: "'1'" do Tipo: Caracter constante. É o 1º lexema da linha 73
+LEXEMA: ""a1"" do Tipo: Cadeia Constante. É o 1º lexema da linha 75
+LEXEMA: "{ delimitadores }" do Tipo: Comentario. É o 1º lexema da linha 77
+LEXEMA: "a" do Tipo: Identificador. É o 1º lexema da linha 79
+LEXEMA: ";" do Tipo: Delimitador. É o 2º lexema da linha 79
+LEXEMA: "b" do Tipo: Identificador. É o 3º lexema da linha 79
+LEXEMA: ";" do Tipo: Delimitador. É o 4º lexema da linha 79
+LEXEMA: "10" do Tipo: Numero. É o 1º lexema da linha 81
+LEXEMA: ";" do Tipo: Delimitador. É o 2º lexema da linha 81
+LEXEMA: "20" do Tipo: Numero. É o 3º lexema da linha 81
+LEXEMA: ";" do Tipo: Delimitador. É o 4º lexema da linha 81
+LEXEMA: "a" do Tipo: Identificador. É o 1º lexema da linha 83
+LEXEMA: "(" do Tipo: Delimitador. É o 2º lexema da linha 83
+LEXEMA: "b" do Tipo: Identificador. É o 3º lexema da linha 83
+LEXEMA: ")" do Tipo: Delimitador. É o 4º lexema da linha 83
+LEXEMA: "10" do Tipo: Numero. É o 1º lexema da linha 85
+LEXEMA: "(" do Tipo: Delimitador. É o 2º lexema da linha 85
+LEXEMA: "20" do Tipo: Numero. É o 3º lexema da linha 85
+LEXEMA: ")" do Tipo: Delimitador. É o 4º lexema da linha 85
+
+ **Não foram encontrados erros**

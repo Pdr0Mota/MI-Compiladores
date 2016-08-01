@@ -1,1 +1,9 @@
-LEXEMA: arquivo.- Tipo: Lexema mal formado- Posição: coluna:1 -- LEXEMA: Nois!- Tipo: Lexema mal formado- Posição: coluna:1 -- 
+LEXEMA: "Teste" do Tipo: Identificador. É o 1º lexema da linha 1
+LEXEMA: "de" do Tipo: Identificador. É o 2º lexema da linha 1
+LEXEMA: "mais" do Tipo: Identificador. É o 3º lexema da linha 1
+LEXEMA: "de" do Tipo: Identificador. É o 4º lexema da linha 1
+LEXEMA: "um" do Tipo: Identificador. É o 5º lexema da linha 1
+
+ --- ERROS --- 
+LEXEMA: "arquivo." do Tipo: Identificador mal formado. É o 6º lexema da linha 1
+LEXEMA: "Nois!" do Tipo: Lexema mal formado. É o 7º lexema da linha 1

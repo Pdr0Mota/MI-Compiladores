@@ -2,6 +2,8 @@
 
 a11.1
 
+_a2
+
 { numero mal formado }
 
 10a

@@ -5,17 +5,17 @@ public class Token {
 	private String tipo;
 	private String lexema;
 	private int linhaDeOcorrencia;
-	private int colunaDeOcorrencia;
+	private int posicao;
 
-	public Token(String tipo, String lexema, int linha) {
+	public Token(String tipo, String lexema, int linha, int position) {
 		this.tipo = tipo;
 		this.lexema = lexema;
 		this.linhaDeOcorrencia = linha;
-		//this.colunaDeOcorrencia = coluna;
+		posicao = position;
 	}
 
 	public String toString() {
-		return "Linha: " + linhaDeOcorrencia + " Coluna: " + colunaDeOcorrencia + "|" + tipo + " " + lexema + "\n";
+		return "Linha: " + linhaDeOcorrencia + " Posição: " + posicao + "|" + tipo + " " + lexema + "\n";
 	}
 
 	public String getTipo() {
@@ -38,8 +38,8 @@ public class Token {
 		return linhaDeOcorrencia;
 	}
 
-	public int getColunaDeOcorrencia() {
-		return colunaDeOcorrencia;
+	public int getPosicao() {
+		return posicao;
 	}
 	
 	

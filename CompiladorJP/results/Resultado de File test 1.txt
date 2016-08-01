@@ -1,0 +1,5 @@
+LEXEMA: "Primeiro" do Tipo: Identificador. É o 1º lexema da linha 1
+LEXEMA: "arquivo" do Tipo: Identificador. É o 2º lexema da linha 1
+LEXEMA: "criado" do Tipo: Identificador. É o 3º lexema da linha 1
+
+ **Não foram encontrados erros**

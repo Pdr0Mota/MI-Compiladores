@@ -33,6 +33,7 @@ public class AnalisadorLexico {
 
 	private int modo;
 	private int contadorLinha = 1;
+	private int contadorLexema = 1;
 
 	private char[] caracteres;
 
@@ -53,13 +54,14 @@ public class AnalisadorLexico {
 
 			if (caracteres[i] == '\n') {
 				contadorLinha++;
+				contadorLexema = 1;
 			}
 
 			if (caracteres[i] != delimitadorTokens1 && caracteres[i] != delimitadorTokens2
 					&& caracteres[i] != delimitadorTokens3 && caracteres[i] != delimitadorTokens4) {
 
 				lexema = lexema + caracteres[i];
-				System.out.println("Lexema atual: " + lexema);
+//				System.out.println("Lexema atual: " + lexema);
 
 			} else if (!lexema.equals(" ") && !lexema.equals("") && !lexema.equals("\n") && !lexema.equals("\t")) {
 
@@ -73,58 +75,66 @@ public class AnalisadorLexico {
 
 					if (palavrasReservadas.contains(lexema)) {
 
-						Token temp = new Token("Palavra Reservada", lexema, contadorLinha);
+						Token temp = new Token("Palavra Reservada", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como palavra reservada: " + lexema);
+//						System.out.println("Add como palavra reservada: " + lexema);
 
 					} else if (delimitadores.contains(lexema)) {
 
-						Token temp = new Token("Delimitador", lexema, contadorLinha);
+						Token temp = new Token("Delimitador", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Delimitador: " + lexema);
+//						System.out.println("Add como Delimitador: " + lexema);
 
 					} else if (operadoresAritmeticos.contains(lexema)) {
 
-						Token temp = new Token("Operador Aritmetico", lexema, contadorLinha);
+						Token temp = new Token("Operador Aritmetico", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Operador Aritmetico: " + lexema);
+//						System.out.println("Add como Operador Aritmetico: " + lexema);
 
 					} else if (operadoresRelacionais.contains(lexema)) {
 
-						Token temp = new Token("Operador Relacional", lexema, contadorLinha);
+						Token temp = new Token("Operador Relacional", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Operador Relacional: " + lexema);
+//						System.out.println("Add como Operador Relacional: " + lexema);
 
 					} else if (operadoresLogicos.contains(lexema)) {
 
-						Token temp = new Token("Operador Logico", lexema, contadorLinha);
+						Token temp = new Token("Operador Logico", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Operador Logico: " + lexema);
+//						System.out.println("Add como Operador Logico: " + lexema);
 
 					} else if (lexema.matches("[a-zA-Z][[a-zA-Z_0-9]|_]*")) {
 
-						Token temp = new Token("Identificador", lexema, contadorLinha);
+						Token temp = new Token("Identificador", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Identificador: " + lexema);
+//						System.out.println("Add como Identificador: " + lexema);
 
 					} else if (lexema.matches("-?[\\d]+|-?[\\d]+\\.[\\d]+")) {
 
-						Token temp = new Token("Numero", lexema, contadorLinha);
+						Token temp = new Token("Numero", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Numero: " + lexema);
+//						System.out.println("Add como Numero: " + lexema);
 
 					} else if (!lexema.equals("") && !lexema.equals(" ") && !lexema.equals("\n")){
 
-						identificarErroElementosAvulsos(lexema, contadorLinha);
-
-						System.out.println("Erro");
+						identificarErroElementosAvulsos(lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
+						
+//						System.out.println("Erro");
 					}
 
 					break;
@@ -135,14 +145,16 @@ public class AnalisadorLexico {
 
 					if (lexema.matches("\"[a-zA-Z][[a-zA-Z_0-9]| ]*\"")) {
 
-						Token temp = new Token("Cadeia Constante", lexema, contadorLinha);
+						Token temp = new Token("Cadeia Constante", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Cadeia Constante: " + lexema);
+//						System.out.println("Add como Cadeia Constante: " + lexema);
 
 					} else {
 
-						erros.add(new Erro("Cadeia constante mal formada.", lexema, contadorLinha));
+						erros.add(new Erro("Cadeia constante mal formada.", lexema, contadorLinha, contadorLexema));
+						contadorLexema++;
 
 					}
 
@@ -168,15 +180,17 @@ public class AnalisadorLexico {
 							+ simbolos + "|" + simbolosDelimitadores + "|"
 							+ simbolosOperadores + "]*\\}")) {
 
-						Token temp = new Token("Comentario", lexema, contadorLinha);
+						Token temp = new Token("Comentario", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Comentario: " + lexema);
+//						System.out.println("Add como Comentario: " + lexema);
 
 					} else {
 
-						System.out.println("Nao reconheceu o comentario: " + lexema);
-						erros.add(new Erro("Comentario mal formado.", lexema, contadorLinha));
+//						System.out.println("Nao reconheceu o comentario: " + lexema);
+						erros.add(new Erro("Comentario mal formado.", lexema, contadorLinha, contadorLexema));
+						contadorLexema++;
 
 					}
 
@@ -190,14 +204,16 @@ public class AnalisadorLexico {
 
 					if (lexema.matches("\'[a-zA-Z_0-9]\'")) {
 
-						Token temp = new Token("Caracter constante", lexema, contadorLinha);
+						Token temp = new Token("Caracter constante", lexema, contadorLinha, contadorLexema);
+						contadorLexema++;
 						tokens.add(temp);
 
-						System.out.println("Add como Caracter constante: " + lexema);
+//						System.out.println("Add como Caracter constante: " + lexema);
 
 					} else {
 
-						erros.add(new Erro("Caracter constante mal formado.", lexema, contadorLinha));
+						erros.add(new Erro("Caracter constante mal formado.", lexema, contadorLinha, contadorLexema));
+						contadorLexema++;
 
 					}
 
@@ -247,6 +263,7 @@ public class AnalisadorLexico {
 
 	}
 	
+	
 	public void printLexemas(){
 		  for (int i = 0; i < tokens.size() ; i++){
 		   System.out.println("LEXEMA Token: " + tokens.get(i).getLexema() + " - TIPO: " + tokens.get(i).getTipo());
@@ -255,27 +272,30 @@ public class AnalisadorLexico {
 		   System.out.println("LEXEMA Erro: " + erros.get(i).getLexema()  + " - TIPO: " + erros.get(i).getTipo());
 		  }
 		 }
-
+		
+	
 	public void gravarResultadoEmArquivo(String fileName) {
 //		primeira ação, gravar os acertos
 		Path p = Paths.get("results/Resultado de " + fileName);
 		String acertos = "";
 		String erros = "";
 		for (int i = 0; i < tokens.size(); i++){
-			acertos += "LEXEMA: " + tokens.get(i).getLexema() + "- Tipo: " + tokens.get(i).getTipo() + "- Posição: coluna:" + tokens.get(i).getLinhaDeOcorrencia() + " -- ";
+			acertos += "LEXEMA: \"" + tokens.get(i).getLexema() + "\" do Tipo: " + tokens.get(i).getTipo() + ". É o " + tokens.get(i).getPosicao()+ "º lexema da linha " + tokens.get(i).getLinhaDeOcorrencia() + "\r\n";
 		}
 		for (int i = 0; i < this.erros.size(); i++){
-			erros += "LEXEMA: " + this.erros.get(i).getLexema() + "- Tipo: " + this.erros.get(i).getTipo() + "- Posição: coluna:" + this.erros.get(i).getLinhaDeOcorrencia() + " -- ";
+			erros += "LEXEMA: \"" + this.erros.get(i).getLexema() + "\" do Tipo: " + this.erros.get(i).getTipo() + ". É o " + this.erros.get(i).getPosicao()+ "º lexema da linha " + this.erros.get(i).getLinhaDeOcorrencia() + "\r\n";
 		}
-		String separator = "\n\n --- ERROS --- \n\n";
+		String separator = "\r\n **Não foram encontrados erros**";
+		if (this.erros.size() != 0)
+			separator = "\r\n --- ERROS --- \r\n";
+		
+		String final1 = acertos + separator + erros;
 		try {
-			Files.write(p, acertos.getBytes());
-			Files.write(p, separator.getBytes());
-			Files.write(p, erros.getBytes());
-			System.out.println("Gravado!");
+			Files.write(p, final1.getBytes());
+//			System.out.println("Gravado!");
 		}
 		catch (Exception e) {
-			System.out.println("oie " + e);
+			System.out.println("Falha ao escrever: " + e);
 		}
 	}
 	
@@ -284,20 +304,20 @@ public class AnalisadorLexico {
 		System.out.println("Quantidade de erros: " + erros.size());
 	}
 
-	private void identificarErroElementosAvulsos(String lexema, int linha) {
+	private void identificarErroElementosAvulsos(String lexema, int linha, int posicao) {
 		
 		if (lexema.matches("-?[\\d]+[\\.]+")||lexema.matches("-?[\\.]+[0-9]+[a-zA-Z]*")||lexema.matches("-?[\\.]+[0-9]+[a-zA-Z]+")||lexema.matches("-?[0-9]+[[a-zA-Z_0-9]|_]*")) {
 
-			erros.add(new Erro("Numero mal formado", lexema, linha));
+			erros.add(new Erro("Numero mal formado", lexema, linha, posicao));
 
-		} else if (lexema.matches("[_]+[[a-zA-Z_0-9]|_]*")) {
+		} else if (lexema.matches("[_]*[[a-zA-Z_0-9]|_|\\.]*")) {
 
-			erros.add(new Erro("Identificador mal formado", lexema, linha));
+			erros.add(new Erro("Identificador mal formado", lexema, linha, posicao));
 
 		}  else if (!lexema.equals(" ") && !lexema.equals("") && !lexema.equals("\n") && !lexema.equals("\t")){
 		
 			//Lexemas formados por simbolos estranhos como $$$ %#%%, nao se sabe se é número, id ou etc.
-			erros.add(new Erro("Lexema mal formado", lexema, linha));
+			erros.add(new Erro("Lexema mal formado", lexema, linha, posicao));
 			
 		}
 	}

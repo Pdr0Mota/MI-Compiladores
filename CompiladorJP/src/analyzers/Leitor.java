@@ -58,11 +58,11 @@ public class Leitor {
 		// Array com os diretórios de todos os arquivos
 		arquivos = diretorio.listFiles();
 		
-		System.out.println("Numero de arquivos encontrados: " + arquivos.length);
-		
-		for(int i = 0; i < arquivos.length; i++){
-			System.out.println(arquivos[i]);
-		}
+//		System.out.println("Numero de arquivos encontrados: " + arquivos.length);
+//		
+//		for(int i = 0; i < arquivos.length; i++){
+//			System.out.println(arquivos[i]);
+//		}
 	}
 
 	public String addEspacosEntrada(String textoEntrada) {
@@ -115,7 +115,7 @@ public class Leitor {
 		novaString = novaString.replaceAll("\\{", " {");
 		novaString = novaString.replaceAll("\\}", "} ");
 		
-		System.out.println(novaString);
+//		System.out.println(novaString);
 
 		return novaString;
 

@@ -6,18 +6,18 @@ public class Erro {
 	private String tipo;
 	private String lexema;
 	private int linhaDeOcorrencia;
-	private int colunaDeOcorrencia;
+	private int posicao;
 
-	public Erro(String tipo, String lexema, int linha) {
+	public Erro(String tipo, String lexema, int linha, int position) {
 		this.tipo = tipo;
 		this.lexema = lexema;
 		this.linhaDeOcorrencia = linha;
-		//this.colunaDeOcorrencia = coluna;
+		posicao = position;
 	}
 
 	public String toString() {
 
-		return "Linha: " + linhaDeOcorrencia + " Coluna: " + colunaDeOcorrencia + "|" + tipo + " " + lexema + "\n";
+		return "Linha: " + linhaDeOcorrencia + " Posição: " + posicao + "|" + tipo + " " + lexema + "\n";
 
 	}
 	
@@ -41,8 +41,8 @@ public class Erro {
 		return linhaDeOcorrencia;
 	}
 
-	public int getColunaDeOcorrencia() {
-		return colunaDeOcorrencia;
+	public int getPosicao() {
+		return posicao;
 	}
 
 }

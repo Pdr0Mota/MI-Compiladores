@@ -16,16 +16,13 @@ public class Init {
 		// TODO Auto-generated method stub
 		Init n = new Init();
 		n.readAllFiles("files");
-		System.out.println("---------");
-		n.compilate();
-//		Path c = Paths.get("D:/Dev/Compiladores/MI-Compiladores/CompiladorJP/results/21.txt");
-//		String t = "testando";
-//		try {
-//			Files.write(c, t.getBytes());
-//		}
-//		catch (Exception e) {
-//			System.out.println("oie " + e);
-//		}
+		System.out.println("---------------------------------------------------");
+		
+		if (n.compilate()){
+			System.out.println("---------------------------------------------------\n\r **Compilação concluída**");
+		} else {
+			System.out.println("Falha na compilação");
+		}
 	}
 	
 //	Função de debug - Pode apagar pós término
@@ -68,26 +65,17 @@ public class Init {
 		} else {
 //			iniciando leitura dos arquivos
 			for (int i = 0; i < arquivos.length; i++){
-				System.out.println("====================================================================");
-				System.out.println("=====================Leitura Inicializada===========================");
-				System.out.println("====================================================================");
-				System.out.println("Lendo o arquivo: " + arquivos[i].getPath());
+
 				Leitor l = new Leitor(arquivos[i].getPath());
 				l.ler();
 				l.preparar();
 				AnalisadorLexico n = new AnalisadorLexico();
 				n.analisarCodigo(l.getCaracteres());
-				System.out.println("====================================================================");
-				System.out.println("=====================Leitura Finalizada=============================");
-				System.out.println("====================================================================");
-				System.out.println("Quantidade de TOKENS e ERROS: ");
-				n.printTokensErros();
-				n.gravarResultadoEmArquivo(arquivos[i].getName());
+
+				n.gravarResultadoEmArquivo(arquivos[i].getName());		
 				
-				/*System.out.println("********************************************************************");
-			    n.printLexemas();
-			    System.out.println("********************************************************************");*/
 			}
+			printPaths();
 			return true;
 		}
 	}

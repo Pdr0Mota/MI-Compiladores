@@ -1,2 +1,15 @@
-LEXEMA: a11.1- Tipo: Lexema mal formado- Posição: coluna:3 -- LEXEMA: 10a- Tipo: Numero mal formado- Posição: coluna:7 -- LEXEMA: 1.a1- Tipo: Lexema mal formado- Posição: coluna:9 -- LEXEMA: -10a- Tipo: Numero mal formado- Posição: coluna:11 -- LEXEMA: -1.a1- Tipo: Lexema mal formado- Posição: coluna:13 -- LEXEMA: "ae$- Tipo: Cadeia constante mal formada.- Posição: coluna:19 -- LEXEMA: "  
-- Tipo: Cadeia constante mal formada.- Posição: coluna:20 -- LEXEMA: 'a3'- Tipo: Caracter constante mal formado.- Posição: coluna:21 -- 
+LEXEMA: "{ identificador mal formado }" do Tipo: Comentario. É o 1º lexema da linha 1
+LEXEMA: "{ numero mal formado }" do Tipo: Comentario. É o 1º lexema da linha 7
+LEXEMA: "{ caractere e cadeia de caracteres mal formados }" do Tipo: Comentario. É o 1º lexema da linha 17
+
+ --- ERROS --- 
+LEXEMA: "a11.1" do Tipo: Identificador mal formado. É o 1º lexema da linha 3
+LEXEMA: "_a2" do Tipo: Identificador mal formado. É o 1º lexema da linha 5
+LEXEMA: "10a" do Tipo: Numero mal formado. É o 1º lexema da linha 9
+LEXEMA: "1.a1" do Tipo: Identificador mal formado. É o 1º lexema da linha 11
+LEXEMA: "-10a" do Tipo: Numero mal formado. É o 1º lexema da linha 13
+LEXEMA: "-1.a1" do Tipo: Lexema mal formado. É o 1º lexema da linha 15
+LEXEMA: ""ae$" do Tipo: Cadeia constante mal formada.. É o 1º lexema da linha 21
+LEXEMA: ""  
+" do Tipo: Cadeia constante mal formada.. É o 1º lexema da linha 22
+LEXEMA: "'a3'" do Tipo: Caracter constante mal formado.. É o 1º lexema da linha 23
