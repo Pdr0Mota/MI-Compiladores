@@ -1,5 +1,8 @@
 package analyzers;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import util.Erro;
@@ -233,14 +236,36 @@ public class AnalisadorLexico {
 
 		} // Fim do percorrimento do array
 
-		gravarResultadoEmArquivo();
+//		gravarResultadoEmArquivo();
 
 	}
 
-	private void gravarResultadoEmArquivo() {
-		// grava em um arquivo txt os resultados armazenados nos arrays tokens e
-		// erros
-
+	public void gravarResultadoEmArquivo(String fileName) {
+//		primeira ação, gravar os acertos
+		Path p = Paths.get("D:/Dev/Compiladores/MI-Compiladores/CompiladorJP/results/Resultado de " + fileName);
+		String acertos = "";
+		String erros = "";
+		for (int i = 0; i < tokens.size(); i++){
+			acertos += "LEXEMA: " + tokens.get(i).getLexema() + "- Tipo: " + tokens.get(i).getTipo() + "- Posição: coluna:" + tokens.get(i).getLinhaDeOcorrencia() + " -- ";
+		}
+		for (int i = 0; i < this.erros.size(); i++){
+			erros += "LEXEMA: " + this.erros.get(i).getLexema() + "- Tipo: " + this.erros.get(i).getTipo() + "- Posição: coluna:" + this.erros.get(i).getLinhaDeOcorrencia() + " -- ";
+		}
+		String separator = "\n\n --- ERROS --- \n\n";
+		try {
+			Files.write(p, acertos.getBytes());
+			Files.write(p, separator.getBytes());
+			Files.write(p, erros.getBytes());
+			System.out.println("Gravado!");
+		}
+		catch (Exception e) {
+			System.out.println("oie " + e);
+		}
+	}
+	
+	public void printTokensErros(){
+		System.out.println("Quantidade de tokens: " + tokens.size());
+		System.out.println("Quantidade de erros: " + erros.size());
 	}
 
 	private void identificarErroElementosAvulsos(String lexema, int linha) {
